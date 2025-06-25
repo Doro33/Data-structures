@@ -144,8 +144,6 @@ public class AVLTree<T extends Comparable<T>> {
         }
     }
 
-
-
     private int countChildren(Node<T> node) {
         if (node == null)
             return 0;
@@ -155,29 +153,6 @@ public class AVLTree<T extends Comparable<T>> {
         if (node.getRight() != null)
             counter++;
         return counter;
-    }
-
-
-
-    public Node<T> findParent(T data) {
-        if (root == null || data.compareTo(root.getData()) == 0)
-            return null;
-
-        Node<T> parentNode = root;
-
-        while (parentNode != null) {
-            Node<T> leftNode = parentNode.getLeft();
-            Node<T> rightNode = parentNode.getRight();
-            if (leftNode != null && leftNode.getData().equals(data) ||
-                    (rightNode != null && rightNode.getData().equals(data)))
-                return parentNode;
-
-            if (data.compareTo(parentNode.getData()) < 0)
-                parentNode = parentNode.getLeft();
-            else
-                parentNode = parentNode.getRight();
-        }
-        return null;
     }
 
     private Node<T> delete(Node<T> node, T data) {
